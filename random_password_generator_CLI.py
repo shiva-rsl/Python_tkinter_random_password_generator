@@ -215,8 +215,8 @@ def generate_password_with_metrics(settings: PasswordSettings) -> tuple[str, flo
             - str: The password strength label
     """
     password = get_generated_password(settings)
-    entropy = calculate_password_entropy(password)
-    _, strength_label, _= calculate_password_strength(password)
+    entropy = calculate_password_entropy(password, settings)
+    _, strength_label, _ = calculate_password_strength(password, settings)
     return password, entropy, strength_label
 
 

@@ -251,28 +251,35 @@ def calculate_password_range(password: str) -> int:
     return password_range
 
 
-def calculate_password_entropy(password: str) -> float:
+def calculate_password_entropy(password: str, settings: PasswordSettings) -> float:
     """
-    Calculates the entropy of a password based on its length and character diversity.
-
-    The entropy is calculated using the formula: 
-        entropy = password_length * log2(character_pool_size)
-
-    - `password_length` is obtained via `get_selected_password_length(password)`
-    - `character_pool_size` is determined by `calculate_password_range(password)`.
+    Calculates the entropy of a password based on its generation settings.
 
     Args:
-        password (str): The password to be evaluated.
+        password (str): The generated password.
+        settings (PasswordSettings): The settings used to generate the password.
 
     Returns:
-        float: The calculated password entropy in bits. A higher value indicates a stronger password.
+        float: The calculated entropy of the generation process in bits.
     """
 
     password_length = get_selected_password_length(password)
 
-    password_pool_size = calculate_password_range(password)
-    entropy = password_length * math.log2(password_pool_size)
-    return entropy
+    enabled_char_types = [
+        option for option, enabled in settings.items()
+        if option != 'password_length' and enabled
+    ]
+
+    category_count = len(enabled_char_types)
+
+    entropy_per_character = math.log2(category_count) + (
+        sum(
+            math.log2(PASSWORD_OPTION_RANGE_SIZE[option])
+            for option in enabled_char_types
+        ) / category_count
+    )
+
+    return password_length * entropy_per_character
 
 
 def evaluate_password_strength(password_entropy: float) -> dict:
@@ -297,7 +304,10 @@ def evaluate_password_strength(password_entropy: float) -> dict:
         return {'score': 100, 'label': '🟢 Perfect', 'color': STRENGTH_COLORS['perfect']}
 
 
-def calculate_password_strength(password: str) -> tuple[int, str, str]:
+def calculate_password_strength(
+    password: str,
+    settings: PasswordSettings
+) -> tuple[int, str, str]:
     """
     Calculates the strength of a given password.
 
@@ -310,6 +320,6 @@ def calculate_password_strength(password: str) -> tuple[int, str, str]:
             - label (str): Human-readable description of strength (e.g., 'weak', 'strong')
             - color (str): Suggested color code for UI display.
     """
-    password_entropy = calculate_password_entropy(password)
+    password_entropy = calculate_password_entropy(password, settings)
     strength_date = evaluate_password_strength(password_entropy)
     return strength_date['score'], strength_date['label'], strength_date['color']
