@@ -6,7 +6,7 @@ from tkinter.filedialog import asksaveasfile
 from typing import Type, Dict, List, Any
 from utils import *
 
-# ----------------------------- Constants ----------------------------- #
+# ----------------------------- Constants ----------------------------- 
 
 # Fonts
 FONT_LARGE = ('Noto Sans', 20)
@@ -24,7 +24,8 @@ ABOUT_TEXT = '''The Random Password Generator enables you to generate secure and
     unpredictable passwords through an optional mix of lowercase and uppercase letters,
     numbers and special characters.'''
 
-# Globals
+
+# ----------------------------- Global Variables ----------------------------- 
 checkbox_variables = []
 checkbox_configs = []
 password_list = []
