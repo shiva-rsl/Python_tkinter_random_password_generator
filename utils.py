@@ -226,7 +226,7 @@ def analyze_selected_password(password: str) -> dict:
     }
 
 
-def calculate_password_range(password: str) -> int:
+def calculate_password_range(settings: PasswordSettings) -> int:
     """
     Determines the effective size of the character set used in a password.
 
@@ -242,11 +242,10 @@ def calculate_password_range(password: str) -> int:
     """
     
     password_range = 0
-    password_features = analyze_selected_password(password)
-    
-    for key, value in password_features.items():
-        if key != 'password_length' and value:
-            password_range += PASSWORD_OPTION_RANGE_SIZE.get(key, 0)
+
+    for option, enabled in settings.items():
+        if option != 'password_length' and enabled:
+            password_range += PASSWORD_OPTION_RANGE_SIZE.get(option, 0)
 
     return password_range
 
