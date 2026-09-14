@@ -1,7 +1,7 @@
 import os
 import re
 import math
-import random
+import secrets
 import string
 from typing import Sequence, TypedDict
 
@@ -78,27 +78,27 @@ def clear_screen() -> None:
 
 def generate_upper_case_char() -> str:
     """Return a random uppercase ASCII letter."""
-    return random.choice(string.ascii_uppercase)
+    return secrets.choice(string.ascii_uppercase)
 
 
 def generate_lower_case_char() -> str:
     """Return a random lowercase ASCII letter."""
-    return random.choice(string.ascii_lowercase)
+    return secrets.choice(string.ascii_lowercase)
 
 
 def generate_digit() -> str:
     """Return a random digit character from the DIGITS string."""
-    return random.choice(DIGITS)
+    return secrets.choice(DIGITS)
 
 
 def generate_symbol() -> str:
     """Return a random symbol character from the SYMBOLS string."""
-    return random.choice(SYMBOLS)
+    return secrets.choice(SYMBOLS)
 
 
 def generate_bracket() -> str:
     """Return a random bracket character from the BRACKET string."""
-    return random.choice(BRACKETS)
+    return secrets.choice(BRACKETS)
 
 
 def generated_password_char(settings: Sequence[str]) -> str:
@@ -120,7 +120,7 @@ def generated_password_char(settings: Sequence[str]) -> str:
     Raises:
         ValueError: If an unsupported character type is encountered.
     """
-    char_type = random.choice(settings)
+    char_type = secrets.choice(settings)
 
     generators = {
         'uppercase': generate_upper_case_char,
