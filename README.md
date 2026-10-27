@@ -4,10 +4,9 @@
 <p align='center'>
 <img src="https://img.shields.io/badge/status-complete-red" />
 <img src="https://img.shields.io/badge/Language-Python-03A9F4" />
-<img src="https://img.shields.io/badge/Python%20Version-3.10+-blueviolet" />
+<img src="https://img.shields.io/badge/Python%20Version-3.10-blueviolet" />
 <img src="https://img.shields.io/badge/Built%20With-Tkinter-brightgreen" />
 <img src="https://img.shields.io/badge/Interface-GUI%20%7C%20CLI-darkblue" />
-<img src="https://img.shields.io/badge/Platforms-Windows%20%7C%20Linux%20%7C%20Mac-795548" />
 <img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=windows&logoColor=white" />
 <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
 <img src="https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white" />
@@ -20,13 +19,14 @@
 ## 📂 Table of contents
 
 - [What is Tkinter?](#what-is-tkinter)
-- [Description](#-description)
-- [Installation](#-installation)
-- [Requirements](#-requirements)
-- [Features](#-features)
-- [Screenshots](#-screenshots)
-- [License](#-license)
-- [Demo](#-demo)
+- [📝 Description](#-description)
+- [🚀 Installation](#-installation)
+- [⚙️ Requirements](#-requirements)
+- [✨ Features](#-features)
+- [🧪 Running Tests](#-running-tests)
+- [📸 Screenshots](#-screenshots)
+- [🧾 License](#-license)
+- [🎬 Demo](#-demo)
 
 
 ## What is Tkinter?
@@ -37,6 +37,7 @@
 ## 📝 Description
 
 A Python tool to generate strong, unpredictable passwords from the command line or a desktop window. You choose the length and character types; the app generates passwords with a cryptographically secure generator and shows entropy and strength.
+
 
 ## 🚀 Installation
 
@@ -149,6 +150,50 @@ Additional features:
     ❌ Exit the app easily
 
     ℹ️ About section for information (GUI)
+
+
+## 🧪 Running Tests
+
+This project uses Python's built-in [`unittest`](https://docs.python.org/3/library/unittest.html) framework to test password generation, input validation, and GUI helper functions.
+
+### 🚀 Run All Tests
+
+From the project's root directory, execute:
+
+```bash
+python -m unittest discover -v
+```
+
+### 🎯 Run Individual Test Modules
+
+Run tests for a specific part of the project:
+
+| Test Module | Description | Command |
+|---|---|---|
+| `test_utils.py` | ⚙️ Password generation, character sets, entropy, and strength evaluation | `python -m unittest -v test_utils` |
+| `test_cli.py` | 💻 CLI input validation and password generation logic | `python -m unittest -v test_cli` |
+| `test_gui.py` | 🖥️ GUI helper functions, password history, and related behaviors | `python -m unittest -v test_gui` |
+
+### 📊 Test Results
+
+✅ **44 tests passed** in the latest full test run.
+
+The test suite covers:
+
+- 🔐 Password generation and character selection
+- 📏 Password length validation
+- ⚙️ Password settings and configuration
+- 📈 Password entropy and strength evaluation
+- 💻 CLI input handling and error scenarios
+- 🖥️ GUI helper functions and password history
+- 💾 Password saving and safeguards against empty-password operations
+
+### 💡 Notes
+
+- 🐍 Run the commands from the project's root directory.
+- 📦 Use the Python environment in which the project's dependencies are installed.
+- 🔄 Run the test suite after making changes to help detect regressions.
+
 
 
 ## 📸 Screenshots
