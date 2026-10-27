@@ -7,9 +7,6 @@
 <img src="https://img.shields.io/badge/Python%20Version-3.10-blueviolet" />
 <img src="https://img.shields.io/badge/Built%20With-Tkinter-brightgreen" />
 <img src="https://img.shields.io/badge/Interface-GUI%20%7C%20CLI-darkblue" />
-<img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=windows&logoColor=white" />
-<img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
-<img src="https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white" />
 <img src="https://img.shields.io/badge/License-MIT-yellow" />
 <img src="https://img.shields.io/badge/Last%20Updated-October%202026-FF5722" />
 
@@ -24,7 +21,6 @@
 - [⚙️ Requirements](#-requirements)
 - [✨ Features](#-features)
 - [🧪 Running Tests](#-running-tests)
-- [📸 Screenshots](#-screenshots)
 - [🧾 License](#-license)
 - [🎬 Demo](#-demo)
 
@@ -195,12 +191,6 @@ The test suite covers:
 - 🔄 Run the test suite after making changes to help detect regressions.
 
 
-
-## 📸 Screenshots
-
-<img src="Screenshots/random_password_generator_main.png" width="350" height="483">
-
-
 ## 🧾 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
@@ -210,4 +200,11 @@ For a summary of the MIT License, see [choosealicense.com](https://choosealicens
 
 ## 📽️ Demo
 
-Coming soon...
+
+### 🖥️ Graphical User Interface (GUI)
+
+![Password Generator GUI Demo](Screenshots/GUI_Demo.gif)
+
+### 💻 Command-Line Interface (CLI)
+
+![Password Generator CLI Demo](Screenshots/CLI_Demo.gif)
